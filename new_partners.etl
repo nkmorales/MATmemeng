@@ -1,0 +1,31 @@
+#Dir["#{Dir.pwd}/lib/**/*.rb"].each { |f| require(f) }
+#
+#source CsvSource, "new_partners.csv"
+#
+#class FileDestination
+#  attr_reader :output_file
+#
+#  def initialize(output_file)
+#    @output_file = output_file
+#  end
+#
+#  def write(row)
+#    @file ||= File.open(output_file, 'w')
+#
+#    @file.write(row)
+#  end
+#
+#  def close
+#    @file.close
+#  end
+#end
+#
+#transform do |row|
+#  %{#{row[:unique_name]}:
+#  standardized_account_name: \"#{row[:name]}\"
+#  possible_account_names: [\"#{row[:name]}\"]
+#  domains: [\"#{row[:domain]}\"]
+#  category: "member"\n}
+#end
+#
+#destination FileDestination, "new_partners.yml"
